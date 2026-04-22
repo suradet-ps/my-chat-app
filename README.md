@@ -1,26 +1,6 @@
-<div align="center">
-
-# **Real-time Chat Application**
+# Real-time Chat Application
 
 ### _A feature-rich, real-time chat application built with Vue 3, Vite, and Pinia, powered by a Supabase backend._
-
-<br>
-
-<p>
-  <a href="https://github.com/pharmacist-sabot/my-chat-app/commits/main">
-    <img src="https://img.shields.io/github/last-commit/pharmacist-sabot/my-chat-app?style=for-the-badge&color=blue&logo=github" alt="Last Commit">
-  </a>
-  <a href="https://github.com/pharmacist-sabot/my-chat-app">
-    <img src="https://img.shields.io/github/languages/top/pharmacist-sabot/my-chat-app?style=for-the-badge&color=yellow&logo=javascript" alt="Top Language">
-  </a>
-  <a href="https://github.com/pharmacist-sabot/my-chat-app">
-    <img src="https://img.shields.io/github/languages/count/pharmacist-sabot/my-chat-app?style=for-the-badge&color=informational" alt="Language Count">
-  </a>
-</p>
-
-</div>
-
----
 
 This repository contains a complete, real-time chat application demonstrating a modern frontend stack. The app provides 1-on-1 messaging functionality, user authentication, profile management, and a clean, responsive interface styled with Tailwind CSS.
 
@@ -73,7 +53,7 @@ To get a local copy up and running, follow these steps.
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/pharmacist-sabot/my-chat-app.git
+    git clone https://github.com/suradet-ps/my-chat-app.git
     cd my-chat-app
     ```
 
