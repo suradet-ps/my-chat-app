@@ -1,83 +1,142 @@
 # Real-time Chat Application
 
-### _A feature-rich, real-time chat application built with Vue 3, Vite, and Pinia, powered by a Supabase backend._
+```
+ ██████╗██╗  ██╗ █████╗ ████████╗ █████╗ ██████╗ ██████╗
+██╔════╝██║  ██║██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗
+██║     ███████║███████║   ██║   ███████║██████╔╝██████╔╝
+██║     ██║  ██║██╔══██║   ██║   ██╔══██║██╔═══╝ ██╔═══╝
+╚██████╗██║  ██║██║  ██║   ██║   ██║  ██║██║     ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝╚═╝  ╚═╝╚═╝╚═╝
+```
 
-This repository contains a complete, real-time chat application demonstrating a modern frontend stack. The app provides 1-on-1 messaging functionality, user authentication, profile management, and a clean, responsive interface styled with Tailwind CSS.
+---
 
-The entire backend is powered by **Supabase**, handling everything from authentication and user profiles to high-performance real-time messaging via its Broadcast feature.
+## ◆ PULSE
 
-## ✨ Features
+A message that waits for a page refresh is not a message; it is a
+note. This is a real-time 1-on-1 chat built on Vue 3 and Supabase
+Broadcast: messages arrive the moment they are sent, appear instantly
+through optimistic UI, and settle into the database in the background.
+Magic-link authentication opens the door without a password, a unified
+search finds conversations and people alike, and the whole backend -
+auth, profiles, messaging - is one Supabase project with nothing to
+host.
 
--   **Supabase Backend:** Leverages Supabase for authentication, user profiles (database), and real-time messaging.
--   **Magic Link Authentication:** Secure, passwordless login using Supabase's `signInWithOtp` feature. Users receive a link in their email to sign in.
--   **High-Performance Real-time:** Uses **Supabase Broadcast** to push new messages directly to clients, minimizing database reads and ensuring low latency.
--   **Optimistic UI:** Messages appear instantly in the UI upon sending for a fluid, responsive user experience, while the data is synchronized in the background.
--   **1-on-1 Conversations:** Users can view a list of their existing conversations and start new chats with any other registered user.
--   **Unified Search:** A single search bar allows users to filter their existing conversations and discover new users to start a chat with.
--   **Profile Management:** An account page where users can update their display name.
--   **Modern Frontend Stack:** Built with Vue 3 (Composition API), Vite, Pinia for centralized state management, and Vue Router.
--   **Clean UI:** Styled with Tailwind CSS and uses `lucide-vue-next` for crisp, modern icons.
+| Broadcast ▣ | Optimistic ▣ | Magic link ▣ | 1-on-1 ▣ |
+|---|---|---|---|
 
-## 🛠️ Built With the Tools and Technologies:
+*The chat loop - sign in, find, send, receive - is sealed.*
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" alt="Vue.js">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
-  <img src="https://img.shields.io/badge/Pinia-FFD859?style=for-the-badge&logo=pinia&logoColor=black" alt="Pinia">
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-</p>
+> Built with Vue 3 + Vite + Pinia, powered by Supabase Broadcast and
+> Row Level Security - the realtime is the feature, not the plugin.
+>
+> **suradet-ps**, artifact keeper
 
-## 🚀 Getting Started
+---
 
-To get a local copy up and running, follow these steps.
+## ◆ IGNITION
 
-### Prerequisites
+One account, one schema, four commands.
 
--   Node.js (v18 or higher)
--   npm (or any other package manager)
--   A free Supabase account ([signup here](https://supabase.com/))
+```
+⟫ git clone https://github.com/suradet-ps/my-chat-app.git
+⟫ cd my-chat-app
+⟫ npm install
+⟫ npm run dev
+```
 
-### Supabase Setup
+Open [http://localhost:5173](http://localhost:5173).
 
-1.  Create a new project in Supabase.
-2.  Go to the **SQL Editor** and run the following SQL to create the necessary tables and policies. (You will need to create a `schema.sql` file in your project with this content).
-    -   `profiles` table for user data.
-    -   `conversations`, `participants`, and `messages` tables for chat functionality.
-    -   Row Level Security (RLS) policies to ensure users can only access their own data.
-    -   A PostgreSQL function (`create_or_get_conversation`) to handle starting new chats.
-3.  Go to **Project Settings > API** to find your Project URL and `anon` public key.
+<details>
+<summary>Supabase setup</summary>
 
-### Installation
+1. Create a Supabase project.
+2. Run `schema.sql` in the SQL Editor: the `profiles`,
+   `conversations`, `participants`, and `messages` tables, RLS
+   policies gating every row, and the `create_or_get_conversation`
+   function that starts chats.
+3. Copy the Project URL and anon key into `.env`:
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/suradet-ps/my-chat-app.git
-    cd my-chat-app
-    ```
+```
+VITE_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
+VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
+```
 
-2.  **Install NPM packages:**
-    ```sh
-    npm install
-    ```
+</details>
 
-3.  **Set up environment variables:**
+The release artifact: `⟫ npm run build` - `dist/` for any static
+host.
 
-    Create a `.env` file in the root of the project and add your Supabase credentials.
-    ```env
-    VITE_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
-    VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
-    ```
+---
 
-4.  **Run the development server:**
-    ```sh
-    npm run dev
-    ```
-    The application will be available at `http://localhost:5173`.
+## ◆ ANATOMY
 
-## 📜 Available Scripts
+One store, one broadcast channel, an honest optimistic screen.
 
--   `npm run dev`: Starts the development server.
--   `npm run build`: Builds the app for production.
--   `npm run preview`: Previews the production build locally.
+- **Authenticates** - magic link via `signInWithOtp`: the email holds
+  the key, no password to leak or forget.
+- **Broadcasts** - Supabase Broadcast pushes messages straight to
+  open clients - the round trip skips the database read, so latency
+  stays low and reads stay rare.
+- **Optimizes** - a sent message appears instantly, then settles in
+  the background - the UI never waits to be told the truth.
+- **Converses** - 1-on-1 threads: the conversation list, new chats
+  with any registered user, and a unified search bar that filters
+  existing chats and discovers new people with one query.
+- **Profiles** - an account page for the display name; the profile
+  travels with the conversation.
+- **Guards** - Row Level Security keeps every conversation inside its
+  participants - the schema answers only to the people in the chat.
+
+---
+
+## ◆ RITUALS
+
+**The core ceremony** - the first conversation:
+
+1. Sign in with the magic link; the email opens the door.
+2. Search once: the bar filters existing conversations and finds new
+   people in the same breath.
+3. Send the first message - it appears instantly, broadcast to the
+   other side, settled into the database in the background.
+4. Reply when it arrives - the broadcast delivers it without a
+   refresh, without a poll.
+
+**The ceremony of the instant send** - the message shows itself
+before the network confirms it. Optimistic UI trusts the user's
+intent and lets the database catch up - the conversation never
+stutters.
+
+**The ceremony of the private row** - RLS decides who may read what,
+row by row: a conversation belongs to its participants, and the
+schema enforces what the feature promises.
+
+---
+
+## ◆ ECHOES
+
+**Where this artifact is heading**
+
+```
+auth   ▸ magic-link passwordless sign-in ────────────────────────────── ▸ sealed
+realtime ▸ Supabase Broadcast push ──────────────────────────────────── ▸ sealed
+optimistic ▸ instant send, background sync ──────────────────────────── ▸ sealed
+converse ▸ 1-on-1 threads, unified search ───────────────────────────── ▸ sealed
+guard  ▸ RLS-gated conversations ────────────────────────────────────── ▸ sealed
+```
+
+**Raising the artifact** - the schema lives in `schema.sql`; the
+state in Pinia stores. Open an issue first to discuss a change.
+
+**Status** - dependencies are maintained through Renovate.
+
+---
+
+```
+  ─────────────────────────────────────────
+   A message sent is a message answered
+   the moment the other side is ready.
+  ─────────────────────────────────────────
+```
+
+Open source.
