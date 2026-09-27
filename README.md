@@ -1,13 +1,10 @@
 # Real-time Chat Application
 
-```
- ██████╗██╗  ██╗ █████╗ ████████╗ █████╗ ██████╗ ██████╗
-██╔════╝██║  ██║██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗
-██║     ███████║███████║   ██║   ███████║██████╔╝██████╔╝
-██║     ██║  ██║██╔══██║   ██║   ██╔══██║██╔═══╝ ██╔═══╝
-╚██████╗██║  ██║██║  ██║   ██║   ██║  ██║██║     ██║
- ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝╚═╝  ╚═╝╚═╝╚═╝
-```
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Vue v3](https://img.shields.io/badge/Vue-v3-4FC08D.svg?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![Vite v8](https://img.shields.io/badge/Vite-v8-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Supabase v2](https://img.shields.io/badge/Supabase-v2-3FCF8E.svg?logo=supabase&logoColor=white)](https://supabase.com/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/suradet-ps/my-chat-app/issues)
 
 ---
 
@@ -139,4 +136,4 @@ state in Pinia stores. Open an issue first to discuss a change.
   ─────────────────────────────────────────
 ```
 
-Open source.
+Open source under the [MIT License](LICENSE).
